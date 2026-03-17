@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vägen till framgång</title>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
@@ -19,27 +19,42 @@
   <section class="success">
     <h2>Framgångshistorier</h2>
 
-    <div class="cards">
+    <!-- SEARCH -->
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Sök..."
+      class="search"
+    />
+
+    <!-- FILTER BUTTONS -->
+    <div class="filters">
+      <button data-filter="all">Alla</button>
+      <button data-filter="frontend">Frontend</button>
+      <button data-filter="it">IT</button>
+      <button data-filter="career">Karriärbyte</button>
+    </div>
+
+    <!-- SORT -->
+    <div class="sort">
+      <button id="sortAZ">Sortera A–Z</button>
+    </div>
+
+    <div class="cards" id="cardsContainer">
       
-      <div class="card">
+      <div class="card" data-user="Anna" data-category="frontend">
         <h3>Anna fick jobb som utvecklare</h3>
-        <p>
-          Efter månader av jobbsökande fick Anna sitt första jobb som frontend-utvecklare.
-        </p>
+        <p>Frontend-utvecklare efter jobbsökande.</p>
       </div>
 
-      <div class="card">
+      <div class="card" data-user="Erik" data-category="career">
         <h3>Erik bytte karriär</h3>
-        <p>
-          Erik gick från lagerarbete till IT-support och älskar sitt nya liv.
-        </p>
+        <p>Från lager till IT-support.</p>
       </div>
 
-      <div class="card">
+      <div class="card" data-user="Sara" data-category="it">
         <h3>Sara landade sitt drömjobb</h3>
-        <p>
-          Med hjälp av nätverkande fick Sara jobb på ett internationellt företag.
-        </p>
+        <p>Fick jobb via nätverkande.</p>
       </div>
 
     </div>
@@ -49,5 +64,6 @@
     <p>© 2026 Vägen till framgång</p>
   </footer>
 
+  <script src="./script.js"></script>
 </body>
 </html>

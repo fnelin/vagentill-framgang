@@ -86,3 +86,41 @@ footer {
   background: #111827;
   color: white;
 }
+
+.search {
+  margin-bottom: 30px;
+  padding: 12px;
+  width: 300px;
+  max-width: 90%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.filters, .sort {
+  margin: 20px 0;
+}
+
+.filters button, .sort button {
+  margin: 5px;
+  padding: 10px 16px;
+  border: none;
+  background: #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filters button:hover, .sort button:hover {
+  background: #c7d2fe;
+}
+
+/* ✨ animation */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card.hide {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
