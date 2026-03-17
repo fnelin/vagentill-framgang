@@ -35,11 +35,33 @@
       <button data-filter="career">Karriärbyte</button>
     </div>
 
+    <!-- DROPDOWN (RADIO) -->
+    <div class="dropdown">
+      <label>Styrkor:</label>
+
+      <div class="dropdown-btn" id="dropdownBtn">
+        Alla
+      </div>
+
+      <div class="dropdown-content">
+        <label><input type="radio" name="strength" value="" checked />Alla</label>
+        <label><input type="radio" name="strength" value="python" />Python</label>
+        <label><input type="radio" name="strength" value="django" />Django</label>
+        <label><input type="radio" name="strength" value="luminus" />luminus </label>
+        <label><input type="radio" name="strength" value="nextjs" />nextjs</label>
+        <label><input type="radio" name="strength" value="typescript" />Python</label>
+        <label><input type="radio" name="strength" value="node" />Django</label>
+        <label><input type="radio" name="strength" value="nextjs" />luminus </label>
+        <label><input type="radio" name="strength" value="react" />nextjs</label>
+      </div>
+    </div>
+
     <!-- SORT -->
     <div class="sort">
       <button id="sortAZ">Sortera A–Z</button>
     </div>
 
+    <!-- CARDS -->
     <div class="cards" id="cardsContainer">
       
       <div class="card" data-user="Adam" data-category="frontend">
@@ -54,6 +76,30 @@
 
       <div class="card" data-user="Jonas" data-category="it">
         <h3>Jonas landade sitt drömjobb</h3>
+        <p>Fick jobb via nätverkande.</p>
+        <h4>Styrkor</h4>
+        <ul>
+          <li>python</li>
+          <li>django</li>
+          <li>luminus</li>
+          <li>nextjs</li>
+        </ul>
+      </div>
+
+      <div class="card" data-user="Pontus" data-category="it">
+        <h3>Pontus landade sitt drömjobb</h3>
+        <p>Fick jobb via nätverkande.</p>
+        <h4>Styrkor</h4>
+        <ul>
+          <li>typescript</li>
+          <li>node</li>
+          <li>nextjs</li>
+          <li>react</li>
+        </ul>
+      </div>
+
+      <div class="card" data-user="Syed" data-category="it">
+        <h3>Syed landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
       </div>
 
