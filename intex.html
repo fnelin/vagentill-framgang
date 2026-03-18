@@ -1,69 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vägen till framgång</title>
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vägen till framgång</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./adam.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Vägen till framgång</h1>
+      <p>Hitta ditt drömjobb och inspireras av andra</p>
+      <a href="https://www.linkedin.com" target="_blank" class="btn">
+        Gå till LinkedIn
+      </a>
+    </header>
 
-  <header class="hero">
-    <h1>Vägen till framgång</h1>
-    <p>Hitta ditt drömjobb och inspireras av andra</p>
-    <a href="https://www.linkedin.com" target="_blank" class="btn">
-      Gå till LinkedIn
-    </a>
-  </header>
+    <section class="success">
+      <h2>Framgångshistorier</h2>
 
-  <section class="success">
-    <h2>Framgångshistorier</h2>
+      <!-- SEARCH -->
+      <input type="text" id="searchInput" placeholder="Sök..." class="search" />
 
-    <!-- SEARCH -->
-    <input 
-      type="text" 
-      id="searchInput" 
-      placeholder="Sök..."
-      class="search"
-    />
-
-    <!-- FILTER BUTTONS -->
-    <div class="filters">
-      <button data-filter="all">Alla</button>
-      <button data-filter="frontend">Frontend</button>
-      <button data-filter="it">IT</button>
-      <button data-filter="career">Karriärbyte</button>
-    </div>
-
-    <!-- SORT -->
-    <div class="sort">
-      <button id="sortAZ">Sortera A–Z</button>
-    </div>
-
-    <div class="cards" id="cardsContainer">
-      
-      <div class="card" data-user="Adam" data-category="frontend">
-        <h3>Adam fick jobb som utvecklare</h3>
-        <p>Frontend-utvecklare efter jobbsökande.</p>
+      <!-- FILTER BUTTONS -->
+      <div class="filters">
+        <button data-filter="all">Alla</button>
+        <button data-filter="frontend">Frontend</button>
+        <button data-filter="it">IT</button>
+        <button data-filter="career">Karriärbyte</button>
       </div>
 
-      <div class="card" data-user="Fredrik" data-category="career">
-        <h3>Fredrik bytte karriär</h3>
-        <p>Från lager till IT-support.</p>
+      <!-- SORT -->
+      <div class="sort">
+        <button id="sortAZ">Sortera A–Z</button>
       </div>
 
-      <div class="card" data-user="Jonas" data-category="it">
-        <h3>Jonas landade sitt drömjobb</h3>
-        <p>Fick jobb via nätverkande.</p>
+      <div class="cards" id="cardsContainer">
+        <div class="card" data-user="Adam" data-category="frontend">
+          <h3>Adam fick jobb som utvecklare</h3>
+          <p>Frontend-utvecklare efter jobbsökande.</p>
+        </div>
+
+        <div class="card" data-user="Fredrik" data-category="career">
+          <h3>Fredrik bytte karriär</h3>
+          <p>Från lager till IT-support.</p>
+        </div>
+
+        <div class="card" data-user="Jonas" data-category="it">
+          <h3>Jonas landade sitt drömjobb</h3>
+          <p>Fick jobb via nätverkande.</p>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <footer>
+      <p>© 2026 Vägen till framgång</p>
+    </footer>
 
-  <footer>
-    <p>© 2026 Vägen till framgång</p>
-  </footer>
-
-  <script src="./script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
