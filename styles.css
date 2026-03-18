@@ -167,3 +167,10 @@ footer {
   margin-bottom: 10px;
   padding: 8px;
 }
+
+.card-link {
+  display: block;
+  margin: 10px 0;
+  color: blue;
+  font-weight: bold;
+}

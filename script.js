@@ -127,7 +127,7 @@ imageInput.addEventListener("change", () => {
   reader.readAsDataURL(file);
 });
 
-
+const link = document.getElementById("link").value;
 
 
 const toggleBtn = document.getElementById("toggleForm");
@@ -161,11 +161,24 @@ if (form) {
     card.classList.add("card");
     card.dataset.user = fname;
     card.dataset.category = "user";
+
+
+let link = document.getElementById("link").value.trim();
+
+if (link && !link.startsWith("http")) {
+  link = "https://" + link;
+}
+
 card.innerHTML = `
   <h3>${rubrik}</h3>
+
   ${imageData ? `<img src="${imageData}" style="width:100%; border-radius:8px;" />` : ""}
+
   <p>${story}</p>
   <small>${fname} ${lname}</small>
+
+  ${link ? `<a href="${link}" target="_blank" class="card-link">Besök profil</a>` : ""}
+
   <ul>
     ${strengths1.map(s => `<li>${s}</li>`).join("")}
   </ul>

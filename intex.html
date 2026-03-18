@@ -32,10 +32,12 @@
       <label>Efternamn</label>
       <input type="text" id="lname" required>
 	<label>Profilbild</label>
-<input type="file" id="image" accept="image/*">
+      <input type="file" id="image" accept="image/*">
+      <img id="preview" style="max-width:100px; display:none; margin-top:10px;" />
       <label>Rubrik</label>
       <input type="text" id="rubrik" required>
-
+      <label>Länk (t.ex LinkedIn)</label>
+      <input type="url" id="link" placeholder="https://linkedin.com/in/...">
      <label>Berätta</label>
      <textarea id="story" rows="4" required></textarea>
 
