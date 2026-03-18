@@ -2,7 +2,7 @@
 adam: tailwind, next js, angular, react
 fredrik: html, css, typescript, kaffe
 pontus: typescript, node, nextjs, react
-syed: fulltack, dotnet, nextjs, css
+syed: fullstack, dotnet, nextjs, css
 jonas: python, nextjs, django, luminus
 
 ￼

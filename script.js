@@ -44,12 +44,12 @@ if (dropdown && dropdownBtn) {
   });
 }
 
-const strengthCheckboxes = document.querySelectorAll('input[name="strength"]');
+const strengthCheckboxes = document.querySelectorAll('input[name="strength1"]');
 const errorMsg = document.getElementById("strengthError");
 
 strengthCheckboxes.forEach(box => { box.addEventListener("change", () => {
     const checked = document.querySelectorAll('input[name="strength1"]:checked');
-
+	console.log(checked)
       if (checked.length > 4) { box.checked = false;
       errorMsg.style.display = "block";
     } else {
@@ -128,8 +128,6 @@ imageInput.addEventListener("change", () => {
 });
 
 const link = document.getElementById("link").value;
-
-
 const toggleBtn = document.getElementById("toggleForm");
 const form = document.getElementById("storyForm");
 
@@ -170,15 +168,15 @@ if (link && !link.startsWith("http")) {
 }
 
 card.innerHTML = `
-  <h3>${rubrik}</h3>
 
   ${imageData ? `<img src="${imageData}" style="width:100%; border-radius:8px;" />` : ""}
 
+  ${link ? `<a href="${link}" target="_blank" class="card-link">profil</a>` : ""}
+
+  <h3>${rubrik}</h3>
   <p>${story}</p>
   <small>${fname} ${lname}</small>
-
-  ${link ? `<a href="${link}" target="_blank" class="card-link">Besök profil</a>` : ""}
-
+  <h4>Styrkor</h4>
   <ul>
     ${strengths1.map(s => `<li>${s}</li>`).join("")}
   </ul>
