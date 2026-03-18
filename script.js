@@ -140,9 +140,13 @@ const form = document.getElementById("storyForm");
 
 const toggleBtn = document.getElementById("toggleForm");
 const storyDialog = document.getElementById("storyDialog");
+const closeBtn = document.getElementById("closeModal");
 
 toggleBtn.addEventListener("click", () => {
   storyDialog.showModal();
+});
+closeBtn.addEventListener("click", () => {
+  storyDialog.close();
 });
 
 // SUBMIT FORM
