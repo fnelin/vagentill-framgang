@@ -1,3 +1,4 @@
+// ---------------- ELEMENTS ----------------
 const input = document.getElementById("searchInput");
 const cardsContainer = document.getElementById("cardsContainer");
 let cards = Array.from(document.querySelectorAll(".card"));
@@ -12,60 +13,78 @@ document.querySelectorAll(".filters button").forEach(btn => {
 });
 
 // ---------------- SEARCH ----------------
-input.addEventListener("input", filterCards);
+if (input) {
+  input.addEventListener("input", filterCards);
+}
 
 // ---------------- SORT ----------------
-document.getElementById("sortAZ").addEventListener("click", () => {
-  cards.sort((a, b) =>
-    a.dataset.user.localeCompare(b.dataset.user)
-  );
-  cards.forEach(card => cardsContainer.appendChild(card));
-});
+const sortBtn = document.getElementById("sortAZ");
+if (sortBtn) {
+  sortBtn.addEventListener("click", () => {
+    cards.sort((a, b) =>
+      a.dataset.user.localeCompare(b.dataset.user)
+    );
+    cards.forEach(card => cardsContainer.appendChild(card));
+  });
+}
 
 // ---------------- DROPDOWN ----------------
 const dropdown = document.querySelector(".dropdown");
-const btn = document.getElementById("dropdownBtn");
+const dropdownBtn = document.getElementById("dropdownBtn");
 
-btn.addEventListener("click", () => {
-  dropdown.classList.toggle("show");
-});
+if (dropdown && dropdownBtn) {
+  dropdownBtn.addEventListener("click", () => {
+    dropdown.classList.toggle("show");
+  });
 
-document.addEventListener("click", (e) => {
-  if (!dropdown.contains(e.target)) {
-    dropdown.classList.remove("show");
-  }
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });
+}
+
+const strengthCheckboxes = document.querySelectorAll('input[name="strength"]');
+const errorMsg = document.getElementById("strengthError");
+
+strengthCheckboxes.forEach(box => { box.addEventListener("change", () => {
+    const checked = document.querySelectorAll('input[name="strength1"]:checked');
+
+      if (checked.length > 4) { box.checked = false;
+      errorMsg.style.display = "block";
+    } else {
+      errorMsg.style.display = "none";
+    }
+  });
 });
 
 // ---------------- RADIO BUTTONS ----------------
-const strengthRadios = document.querySelectorAll('input[name="strength"]');
+const strengthRadios = document.querySelectorAll('input[name="strength2"]');
 
 strengthRadios.forEach(radio => {
   radio.addEventListener("change", () => {
-    btn.innerText = radio.value || "Alla";
+    if (dropdownBtn) {
+      dropdownBtn.innerText = radio.value || "Alla";
+    }
     filterCards();
-    dropdown.classList.remove("show");
+    if (dropdown) dropdown.classList.remove("show");
   });
 });
 
 // ---------------- FILTER FUNCTION ----------------
 function filterCards() {
-  const value = input.value.toLowerCase();
+  const value = input ? input.value.toLowerCase() : "";
 
-  const selectedRadio = document.querySelector('input[name="strength"]:checked');
-  const selectedStrength = selectedRadio
-    ? selectedRadio.value.toLowerCase().trim()
-    : "";
+  const selectedRadio = document.querySelector('input[name="strength2"]:checked');
+  const selectedStrength = selectedRadio ? selectedRadio.value.toLowerCase().trim() : "";
 
   cards.forEach(card => {
     const user = card.dataset.user.toLowerCase();
     const text = card.innerText.toLowerCase();
     const category = card.dataset.category;
 
-    // support BOTH ul and ol
     const items = card.querySelectorAll("li");
-    const strengths = Array.from(items).map(li =>
-      li.innerText.toLowerCase().trim()
-    );
+    const strengths = Array.from(items).map(li => li.innerText.toLowerCase().trim());
 
     const matchSearch =
       user.includes(value) ||
@@ -84,5 +103,60 @@ function filterCards() {
     } else {
       card.classList.add("hide");
     }
+  });
+}
+
+// ---------------- FORM ----------------
+const toggleBtn = document.getElementById("toggleForm");
+const form = document.getElementById("storyForm");
+
+// SHOW / HIDE FORM
+if (toggleBtn && form) {
+  toggleBtn.addEventListener("click", () => {
+    form.classList.toggle("hidden");
+  });
+}
+
+// SUBMIT FORM
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const rubrik = document.getElementById("rubrik").value;
+    const story = document.getElementById("story").value;
+
+    const selectedBoxes = document.querySelectorAll('input[name="strength1"]:checked');
+    const strengths1 = Array.from(selectedBoxes).map(cb => cb.value);
+
+//    const selectedRadio = document.querySelector('input[name="strength"]:checked');
+//    const strength = selectedRadio ? selectedRadio.value : "";
+
+    // CREATE NEW CARD
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.dataset.user = fname;
+    card.dataset.category = "user";
+
+    card.innerHTML = `
+      <h3>${rubrik}</h3>
+      <p>${story}</p>
+      <small>${fname} ${lname}</small>
+     <ul>
+      ${strengths1.map(s => `<li>${s}</li>`).join("")}
+    </ul>
+  `;
+
+    cardsContainer.appendChild(card);
+
+    cards.push(card);
+
+    // reset form
+    form.reset();
+    form.classList.add("hidden");
+
+    // re-run filter so it appears correctly
+    filterCards();
   });
 }
