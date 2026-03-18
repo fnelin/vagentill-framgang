@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vägen till framgång</title>
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./pontus.css" />
+
+  <!-- Development version -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<!-- Production version -->
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
@@ -105,7 +112,7 @@
     <div class="cards" id="cardsContainer">
       <div class="card" data-user="Adam" data-category="frontend">
      <img src="./adam.jpeg" alt="adam" width="200" height="200">
-	<a href="https://www.linkedin.com/in/adam-kammerland-21884543">linkedin</a>
+	<a href="https://www.linkedin.com/in/adam-kammerland-21884543"><i data-lucide="linkedin"></i></a> 
      <h3>Adam fick jobb som utvecklare</h3>
         <p>Frontend-utvecklare efter jobbsökande.</p>
         <h4>Styrkor</h4>
@@ -119,7 +126,7 @@
 
       <div class="card" data-user="Fredrik" data-category="career">
      <img src="./fredrik.jpeg" alt="fredrik" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/fnelin"/>linkedin</a>
+	      <a href="https://www.linkedin.com/in/fnelin"/><i data-lucide="linkedin"></i></a>
         <h3>Fredrik bytte karriär</h3>
         <p>Från lager till IT-support.</p>
         <h4>Styrkor</h4>
@@ -132,7 +139,7 @@
       </div>
       <div class="card" data-user="Jonas" data-category="it">
      <img src="./jonas.jpeg" alt="Jonas" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/jonas-fredriksson-314a8018"/>linkedin</a>
+	      <a href="https://www.linkedin.com/in/jonas-fredriksson-314a8018"/><i data-lucide="linkedin"></i></a>
         <h3>Jonas landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
         <h4>Styrkor</h4>
@@ -146,7 +153,7 @@
 
       <div class="card" data-user="Pontus" data-category="it">
      <img src="./pontus.jpeg" alt="Pontus" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/pontus-olsson-0a6893198"/>linkedin</a>
+	      <a href="https://www.linkedin.com/in/pontus-olsson-0a6893198"/><i data-lucide="linkedin"></i></a>
         <h3>Pontus landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
         <h4>Styrkor</h4>
@@ -160,7 +167,7 @@
 
       <div class="card" data-user="Syed" data-category="it">
      <img src="./syed.jpeg" alt="syed" width="200" height="200">
-	      <a href="linkedin.com/in/syedulfathwaliullah"/>linkedin</a>
+	      <a href="linkedin.com/in/syedulfathwaliullah"/><i data-lucide="linkedin"></i></a>
         <h3>Syed landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
         <h4>Styrkor</h4>
@@ -180,5 +187,9 @@
   </footer>
 
   <script src="./script.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
