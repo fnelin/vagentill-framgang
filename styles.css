@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 body {
@@ -10,7 +12,7 @@ body {
   color: #333;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
   background: linear-gradient(135deg, #4f46e5, #3b82f6);
   color: white;
@@ -20,107 +22,147 @@ body {
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
 }
 
 .btn {
+  margin-top: 20px;
   display: inline-block;
   background: white;
   color: #3b82f6;
-  padding: 12px 24px;
-  border-radius: 25px;
+  padding: 10px 20px;
+  border-radius: 20px;
   text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
 }
 
-.btn:hover {
-  background: #e0e7ff;
-}
-
-/* SUCCESS SECTION */
-.success {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.success h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-}
-
-.cards {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  margin-bottom: 10px;
-  color: #4f46e5;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #111827;
-  color: white;
-}
-
+/* SEARCH */
 .search {
-  margin-bottom: 30px;
-  padding: 12px;
-  width: 300px;
-  max-width: 90%;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.filters, .sort {
   margin: 20px 0;
+  padding: 10px;
+  width: 250px;
 }
 
-.filters button, .sort button {
+/* FILTER BUTTONS */
+.filters button {
   margin: 5px;
-  padding: 10px 16px;
+  padding: 8px 14px;
   border: none;
   background: #e5e7eb;
   border-radius: 6px;
   cursor: pointer;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  padding: 10px 14px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 180px;
+}
+
+/* 🔥 KEY IMPROVEMENTS HERE */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+
+  width: 260px;
+  max-height: 220px; /* scroll instead of overflow */
+  overflow-y: auto;
+
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+  /* 👇 GRID layout instead of stacked mess */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 10px;
+
+  z-index: 100;
+}
+
+/* hide by default */
+.dropdown:not(.show) .dropdown-content {
+  display: none;
+}
+
+.dropdown.show .dropdown-content {
+  display: grid;
+}
+
+/* label styling */
+.dropdown-content label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+/* hover effect */
+.dropdown-content label:hover {
+  background: #f3f4f6;
+}
+
+/* fix radio spacing */
+.dropdown-content input[type="radio"] {
+  margin: 0;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 260px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
 
-.filters button:hover, .sort button:hover {
-  background: #c7d2fe;
-}
-
-/* ✨ animation */
-.card {
-  transition: all 0.3s ease;
-}
 
 .card.hide {
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
+  display: none;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: white;
+}
+.hidden {
+  display: none;
+}
+
+.card-link {
+  display: block;
+  margin: 10px 0;
+  color: blue;
+  font-weight: bold;
+}
+.test input[type="checkbox"] {
+  vertical-align: middle;
+  position: relative;
+  bottom: -25px;
 }
