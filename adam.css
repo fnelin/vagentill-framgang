@@ -1,0 +1,31 @@
+/* // `´nb@NB${}[]\|| `${}` */
+/* Färger för sidan (grå, ljusblå, ljuslila, mörklila):
+#F2EAE0
+#B4D3D9
+#BDA6CE
+#9B8EC7 */
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #b4d3d9, #9b8ec7);
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  border-bottom: 0.1rem solid #f2eae0;
+}
+
+.btn {
+  margin-top: 20px;
+  display: inline-block;
+  background: white;
+  color: linear-gradient(135deg, #b4d3d9, #9b8ec7);
+  color: #b4d3d9;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+}
