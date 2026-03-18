@@ -21,7 +21,6 @@
   <section class="success">
     <h2>Framgångshistorier</h2>
 
-    <!-- SEARCH -->
     <input type="text" id="searchInput" placeholder="Sök..." class="search"/>
 
     <button id="toggleForm">Registrera din historia</button>
@@ -32,7 +31,8 @@
 
       <label>Efternamn</label>
       <input type="text" id="lname" required>
-
+	<label>Profilbild</label>
+<input type="file" id="image" accept="image/*">
       <label>Rubrik</label>
       <input type="text" id="rubrik" required>
 
@@ -101,10 +101,10 @@
 
     <!-- CARDS -->
     <div class="cards" id="cardsContainer">
-      
       <div class="card" data-user="Adam" data-category="frontend">
-	      <a href="https://www.linkedin.com/in/adam-kammerland-21884543">linkedin</a>
-        <h3>Adam fick jobb som utvecklare</h3>
+     <img src="./adam.jpeg" alt="adam" width="200" height="200">
+	<a href="https://www.linkedin.com/in/adam-kammerland-21884543">linkedin</a>
+     <h3>Adam fick jobb som utvecklare</h3>
         <p>Frontend-utvecklare efter jobbsökande.</p>
         <h4>Styrkor</h4>
         <ul>
@@ -116,6 +116,7 @@
       </div>
 
       <div class="card" data-user="Fredrik" data-category="career">
+     <img src="./fredrik.jpeg" alt="fredrik" width="200" height="200">
 	      <a href="https://www.linkedin.com/in/fnelin"/>linkedin</a>
         <h3>Fredrik bytte karriär</h3>
         <p>Från lager till IT-support.</p>
@@ -128,6 +129,7 @@
         </ul>
       </div>
       <div class="card" data-user="Jonas" data-category="it">
+     <img src="./jonas.jpeg" alt="Jonas" width="200" height="200">
 	      <a href="https://www.linkedin.com/in/jonas-fredriksson-314a8018"/>linkedin</a>
         <h3>Jonas landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
@@ -141,6 +143,7 @@
       </div>
 
       <div class="card" data-user="Pontus" data-category="it">
+     <img src="./pontus.jpeg" alt="Pontus" width="200" height="200">
 	      <a href="https://www.linkedin.com/in/pontus-olsson-0a6893198"/>linkedin</a>
         <h3>Pontus landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
@@ -154,6 +157,7 @@
       </div>
 
       <div class="card" data-user="Syed" data-category="it">
+     <img src="./syed.jpeg" alt="syed" width="200" height="200">
 	      <a href="linkedin.com/in/syedulfathwaliullah"/>linkedin</a>
         <h3>Syed landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>

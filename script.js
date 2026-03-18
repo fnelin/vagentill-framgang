@@ -107,6 +107,29 @@ function filterCards() {
 }
 
 // ---------------- FORM ----------------
+const imageInput = document.getElementById("image");
+const preview = document.getElementById("preview");
+
+let imageData = "";
+
+imageInput.addEventListener("change", () => {
+  const file = imageInput.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    imageData = e.target.result; // base64 image
+    preview.src = imageData;
+    preview.style.display = "block";
+  };
+
+  reader.readAsDataURL(file);
+});
+
+
+
+
 const toggleBtn = document.getElementById("toggleForm");
 const form = document.getElementById("storyForm");
 
@@ -138,16 +161,15 @@ if (form) {
     card.classList.add("card");
     card.dataset.user = fname;
     card.dataset.category = "user";
-
-    card.innerHTML = `
-      <h3>${rubrik}</h3>
-      <p>${story}</p>
-      <small>${fname} ${lname}</small>
-     <ul>
-      ${strengths1.map(s => `<li>${s}</li>`).join("")}
-    </ul>
-  `;
-
+card.innerHTML = `
+  <h3>${rubrik}</h3>
+  ${imageData ? `<img src="${imageData}" style="width:100%; border-radius:8px;" />` : ""}
+  <p>${story}</p>
+  <small>${fname} ${lname}</small>
+  <ul>
+    ${strengths1.map(s => `<li>${s}</li>`).join("")}
+  </ul>
+`;
     cardsContainer.appendChild(card);
 
     cards.push(card);
