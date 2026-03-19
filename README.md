@@ -1,22 +1,22 @@
-# 🚀 Lexicon grupprojekt - Karriär-Sprint: Team Edition 
-En tredagars övning för att presentera ett verktyg för att lättare komma ut i arbetslivet. Med tight satta ramer valde gruppen en one-page-application lösning för att snabbt kunna presentera en fungerande applikation.
+# 🚀 Lexicon group project - Karriär-Sprint: Team Edition 
+A three day exercise designed to demonstrate a tool that facilitates entry into the workforce. Within a tightly constrained timeframe, the team opted for a one page application approach to rapidly deliver a functional prototype.
 
-## 🛣️ Vägen till framgång
-Tillsammans bygger vi vägen till första jobbet. Lexicon Frontend Grupp 5 enligt instruktioner ifrån: [Lexicon](https://github.com/Lexicon-Utbildning-Front-end-2025-2026/grupp-utmaning)
+## 🛣️ Road to success / Vägen till framgång
+Together we create the road to success. Lexicon Frontend Grupp 5 project as instructed in (swedish): [Lexicon](https://github.com/Lexicon-Utbildning-Front-end-2025-2026/grupp-utmaning)
 
 ## 📅 Workflow
 To ensure delivery within the defined timeframe, the team followed a structured, iterative workflow:
 
-### Day 1 – Initiation & Planning
+### Day 1, Initiation & Planning
 - Conducted a brainstorming session to define scope and key objectives  
 - Developed initial wireframes and proof of concept  
 - Established overarching project plan and created repository  
 
-### Day 2 – Execution & Alignment
+### Day 2, Execution & Alignment
 - Defined user stories and decomposed them into actionable tasks  
 - Held daily sync to review progress and align on code integration  
 
-### Day 3 – Validation & Delivery
+### Day 3, Validation & Delivery
 - Performed functional testing and final refinements  
 - Delivered final demo and presentation  
 
