@@ -1,142 +1,143 @@
 <!doctype html>
 <html lang="sv">
-  
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vägen till framgång</title>
-  <link rel="stylesheet" href="./styles.css" />
-  <link rel="stylesheet" href="./adam.css" />
-  <link rel="stylesheet" href="./pontus.css" />
-  <link rel="stylesheet" href="./ulfath.css" />
-  <link rel="stylesheet" href="./footer.css" />
-  
 
-  <!-- Development version -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vägen till framgång</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./adam.css" />
+    <link rel="stylesheet" href="./pontus.css" />
+    <link rel="stylesheet" href="./ulfath.css" />
+    <link rel="stylesheet" href="./footer.css" />
 
-  <!-- Production version -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
 
-  <header class="hero">
+    <!-- Development version -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Production version -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+
+    <header class="hero">
       <h1>Vägen till framgång</h1>
       <p>Hitta ditt drömjobb och inspireras av andra</p>
       <a href="https://www.linkedin.com" target="_blank" class="btn">
         Gå till LinkedIn
       </a>
-   </header>
+    </header>
 
-  <section class="success">
-    <h2>Framgångshistorier</h2>
+    <section class="success">
+      <h2>Framgångshistorier</h2>
 
-    <input type="text" id="searchInput" placeholder="Sök egenskaper här" class="search"/>
+      <input type="text" id="searchInput" placeholder="Sök egenskaper här" class="search" />
 
-    <button id="toggleForm">Registrera din historia</button>
+      <button id="toggleForm">Registrera din historia</button>
 
- <dialog id="storyDialog">
-      <button id="closeModal" class="close-button" aria-label="Stäng">&times;</button>
-  <form id="storyForm" >
-    <div class="form-group">
-      
-      <label>Förnamn</label>
-      <input type="text" id="fname" required>
-    </div>
-    
-    <div class="form-group">
-      <label>Efternamn</label>
-      <input type="text" id="lname" required>
-    </div>
-    <div class="form-group">
-      <label>Profilbild</label>
-      <input type="file" id="image" accept="image/*">
-      <img id="preview" style="max-width:100px; display:none; margin-top:10px;" />
-    </div>
-    <div class="form-group">
-      <label>Rubrik</label>
-      <input type="text" id="rubrik" required>
-      <div class="form-group">
-        <label>Länk (t.ex LinkedIn)</label>
-        <input type="url" id="link" placeholder="https://linkedin.com/in/...">
+      <dialog id="storyDialog">
+        <button id="closeModal" class="close-button" aria-label="Stäng">&times;</button>
+        <form id="storyForm">
+          <div class="form-group">
+
+            <label>Förnamn</label>
+            <input type="text" id="fname" required>
+          </div>
+
+          <div class="form-group">
+            <label>Efternamn</label>
+            <input type="text" id="lname" required>
+          </div>
+          <div class="form-group">
+            <label>Profilbild</label>
+            <input type="file" id="image" accept="image/*">
+            <img id="preview" style="max-width:100px; display:none; margin-top:10px;" />
+          </div>
+          <div class="form-group">
+            <label>Rubrik</label>
+            <input type="text" id="rubrik" required>
+            <div class="form-group">
+              <label>Länk (t.ex LinkedIn)</label>
+              <input type="url" id="link" placeholder="https://linkedin.com/in/...">
+            </div>
+            <div class="form-group">
+              <label>Berätta</label>
+              <textarea id="story" rows="4" required></textarea>
+            </div>
+
+            <p>Välj styrkor (max 4):</p>
+            <div class="test">
+
+              <label><input type="checkbox" name="strength1" value="python" /> Python</label>
+              <label><input type="checkbox" name="strength1" value="django" /> Django</label>
+              <label><input type="checkbox" name="strength1" value="react" /> React</label>
+              <label><input type="checkbox" name="strength1" value="typescript" /> TypeScript</label>
+              <label><input type="checkbox" name="strength1" value="css" /> CSS</label>
+              <label><input type="checkbox" name="strength1" value="nextjs" /> Next.js</label>
+              <label><input type="checkbox" name="strength1" value="node" /> TypeScript</label>
+              <label><input type="checkbox" name="strength1" value="angular" /> CSS</label>
+              <label><input type="checkbox" name="strength1" value="fullstack" /> Next.js</label>
+            </div>
+
+            <p id="strengthError" style="color:red; display:none;">
+              Du kan välja max 4 styrkor
+            </p>
+
+            <button type="submit">Skicka</button>
+        </form>
+      </dialog>
+
+
+      <!-- FILTER BUTTONS -->
+      <div class="filters">
+        <button data-filter="all">Alla</button>
+        <button data-filter="frontend">Frontend</button>
+        <button data-filter="it">IT</button>
+        <button data-filter="career">Karriärbyte</button>
       </div>
-      <div class="form-group">
-        <label>Berätta</label>
-        <textarea id="story" rows="4" required></textarea>
+
+      <!-- DROPDOWN (RADIO) -->
+      <div class="dropdown">
+        <label>Styrkor:</label>
+
+        <div class="dropdown">
+          <div class="dropdown-btn" id="dropdownBtn">
+            Alla
+          </div>
+
+          <div class="dropdown-content">
+            <label><input type="radio" name="strength2" value="" checked /> Alla</label>
+
+            <label><input type="radio" name="strength2" value="python" /> Python</label>
+            <label><input type="radio" name="strength2" value="django" /> Django</label>
+            <label><input type="radio" name="strength2" value="luminus" /> Luminus</label>
+            <label><input type="radio" name="strength2" value="nextjs" /> Next.js</label>
+            <label><input type="radio" name="strength2" value="typescript" /> TypeScript</label>
+            <label><input type="radio" name="strength2" value="node" /> Node</label>
+            <label><input type="radio" name="strength2" value="react" /> React</label>
+            <label><input type="radio" name="strength2" value="angular" /> Angular</label>
+            <label><input type="radio" name="strength2" value="html" /> HTML</label>
+            <label><input type="radio" name="strength2" value="css" /> CSS</label>
+            <label><input type="radio" name="strength2" value="tailwind" /> Tailwind</label>
+            <label><input type="radio" name="strength2" value="dotnet" /> .NET</label>
+            <label><input type="radio" name="strength2" value="fullstack" /> Fullstack</label>
+            <label><input type="radio" name="strength2" value="kaffe" /> Kaffe ☕</label>
+          </div>
+        </div>
       </div>
-    
-    <p>Välj styrkor (max 4):</p>
-    <div class="test">
-
-      <label><input type="checkbox" name="strength1" value="python" /> Python</label>
-      <label><input type="checkbox" name="strength1" value="django" /> Django</label>
-      <label><input type="checkbox" name="strength1" value="react" /> React</label>
-      <label><input type="checkbox" name="strength1" value="typescript" /> TypeScript</label>
-      <label><input type="checkbox" name="strength1" value="css" /> CSS</label>
-      <label><input type="checkbox" name="strength1" value="nextjs" /> Next.js</label>
-      <label><input type="checkbox" name="strength1" value="node" /> TypeScript</label>
-      <label><input type="checkbox" name="strength1" value="angular" /> CSS</label>
-      <label><input type="checkbox" name="strength1" value="fullstack" /> Next.js</label>
-    </div>
-      
-    <p id="strengthError" style="color:red; display:none;">
-      Du kan välja max 4 styrkor
-    </p>
-    
-    <button type="submit">Skicka</button>
-  </form>
-</dialog>
-
-
-<!-- FILTER BUTTONS -->
-    <div class="filters">
-      <button data-filter="all">Alla</button>
-      <button data-filter="frontend">Frontend</button>
-      <button data-filter="it">IT</button>
-      <button data-filter="career">Karriärbyte</button>
-    </div>
-
-    <!-- DROPDOWN (RADIO) -->
-    <div class="dropdown">
-      <label>Styrkor:</label>
-
-<div class="dropdown">
-  <div class="dropdown-btn" id="dropdownBtn">
-    Alla
-  </div>
-
-  <div class="dropdown-content">
-    <label><input type="radio" name="strength2" value="" checked /> Alla</label>
-
-    <label><input type="radio" name="strength2" value="python" /> Python</label>
-    <label><input type="radio" name="strength2" value="django" /> Django</label>
-    <label><input type="radio" name="strength2" value="luminus" /> Luminus</label>
-    <label><input type="radio" name="strength2" value="nextjs" /> Next.js</label>
-    <label><input type="radio" name="strength2" value="typescript" /> TypeScript</label>
-    <label><input type="radio" name="strength2" value="node" /> Node</label>
-    <label><input type="radio" name="strength2" value="react" /> React</label>
-    <label><input type="radio" name="strength2" value="angular" /> Angular</label>
-    <label><input type="radio" name="strength2" value="html" /> HTML</label>
-    <label><input type="radio" name="strength2" value="css" /> CSS</label>
-    <label><input type="radio" name="strength2" value="tailwind" /> Tailwind</label>
-    <label><input type="radio" name="strength2" value="dotnet" /> .NET</label>
-    <label><input type="radio" name="strength2" value="fullstack" /> Fullstack</label>
-    <label><input type="radio" name="strength2" value="kaffe" /> Kaffe ☕</label>
-  </div>
-</div>
-
-    <!-- SORT -->
-    <div class="sort">
-      <button id="sortAZ">Sortera A–Z</button>
-    </div>
-  </section>
+      <!-- SORT -->
+      <div class="sort">
+        <button id="sortAZ">Sortera A–Z</button>
+      </div>
+    </section>
 
     <!-- CARDS -->
-      <div class="cards" id="cardsContainer">
+    <div class="cards" id="cardsContainer">
       <div class="card" data-user="Adam" data-category="frontend">
-     <img src="./adam.jpeg" alt="adam" width="200" height="200">
-	<a href="https://www.linkedin.com/in/adam-kammerland-21884543"><i data-lucide="linkedin"></i></a> 
-     <h3>Adam fick jobb som utvecklare</h3>
+        <img src="./adam.jpeg" alt="adam" width="200" height="200">
+        <a href="https://www.linkedin.com/in/adam-kammerland-21884543"><i data-lucide="linkedin"></i></a>
+        <h3>Adam fick jobb som utvecklare</h3>
         <p>Frontend-utvecklare efter jobbsökande.</p>
         <h4>Styrkor</h4>
         <ul>
@@ -148,8 +149,8 @@
       </div>
 
       <div class="card" data-user="Fredrik" data-category="career">
-     <img src="./fredrik.jpeg" alt="fredrik" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/fnelin"/><i data-lucide="linkedin"></i></a>
+        <img src="./fredrik.jpeg" alt="fredrik" width="200" height="200">
+        <a href="https://www.linkedin.com/in/fnelin" /><i data-lucide="linkedin"></i></a>
         <h3>Fredrik bytte karriär</h3>
         <p>Från lager till IT-support.</p>
         <h4>Styrkor</h4>
@@ -161,8 +162,8 @@
         </ul>
       </div>
       <div class="card" data-user="Jonas" data-category="it">
-     <img src="./jonas.jpeg" alt="Jonas" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/jonas-fredriksson-314a8018"/><i data-lucide="linkedin"></i></a>
+        <img src="./jonas.jpeg" alt="Jonas" width="200" height="200">
+        <a href="https://www.linkedin.com/in/jonas-fredriksson-314a8018" /><i data-lucide="linkedin"></i></a>
         <h3>Jonas landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
         <h4>Styrkor</h4>
@@ -175,8 +176,8 @@
       </div>
 
       <div class="card" data-user="Pontus" data-category="it">
-     <img src="./pontus.jpeg" alt="Pontus" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/pontus-olsson-0a6893198"/><i data-lucide="linkedin"></i></a>
+        <img src="./pontus.jpeg" alt="Pontus" width="200" height="200">
+        <a href="https://www.linkedin.com/in/pontus-olsson-0a6893198" /><i data-lucide="linkedin"></i></a>
         <h3>Pontus landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
         <h4>Styrkor</h4>
@@ -187,11 +188,11 @@
           <li>react</li>
         </ul>
       </div>
-    </section>
+      </section>
 
       <div class="card" data-user="Syed" data-category="it">
-     <img src="./syed.jpeg" alt="syed" width="200" height="200">
-	      <a href="http://www.linkedin.com/in/syedulfathwaliullah"/><i data-lucide="linkedin"></i></a>
+        <img src="./syed.jpeg" alt="syed" width="200" height="200">
+        <a href="http://www.linkedin.com/in/syedulfathwaliullah" /><i data-lucide="linkedin"></i></a>
         <h3>Syed landade sitt drömjobb</h3>
         <p>Fick jobb via nätverkande.</p>
         <h4>Styrkor</h4>
@@ -203,8 +204,8 @@
         </ul>
       </div>
     </div>
-   
-   
+
+
     <footer>
       <p>© 2026 Vägen till framgång</p>
     </footer>
