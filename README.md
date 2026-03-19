@@ -1,8 +1,40 @@
-# Vägen till framgång
+# 🚀 Lexicon grupprojekt - Karriär-Sprint: Team Edition 
+En tredagars övning för att presentera ett verktyg för att lättare komma ut i arbetslivet. Med tight satta ramer valde gruppen en one-page-application lösning för att snabbt kunna presentera en fungerande applikation.
+
+## 🛣️ Vägen till framgång
 Tillsammans bygger vi vägen till första jobbet. Lexicon Frontend Grupp 5 enligt instruktioner ifrån: [Lexicon](https://github.com/Lexicon-Utbildning-Front-end-2025-2026/grupp-utmaning)
-### Gruppmedlemmar G5
-+ Pontus Olsson
-+ Jonas Fredriksson
-+ Adam Kammerland
-+ Syed Ulfath Waliullah
-+ Fredrik Nelin
+### 👥 Gruppmedlemmar G5
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/IlluminatorWatch">
+        <img src="https://github.com/IlluminatorWatch.png" width="60" style="border-radius:50%;" /><br/>
+        Adam
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/md1frejo">
+        <img src="https://github.com/md1frejo.png" width="60" style="border-radius:50%;" /><br/>
+        Jonas
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/pontusOlssonGit">
+        <img src="https://github.com/pontusOlssonGit.png" width="60" style="border-radius:50%;" /><br/>
+        Pontus
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Wali0023">
+        <img src="https://github.com/Wali0023.png" width="60" style="border-radius:50%;" /><br/>
+        Syed
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/fnelin">
+        <img src="https://github.com/fnelin.png" width="60" style="border-radius:50%;" /><br/>
+        Fredrik
+      </a>
+    </td>
+  </tr>
+</table>
