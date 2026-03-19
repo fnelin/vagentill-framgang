@@ -3,6 +3,7 @@ const input = document.getElementById("searchInput");
 const cardsContainer = document.getElementById("cardsContainer");
 let cards = Array.from(document.querySelectorAll(".card"));
 let currentFilter = "all";
+let editingCard = null;
 
 // ---------------- FILTER BUTTONS ----------------
 document.querySelectorAll(".filters button").forEach((btn) => {
@@ -19,9 +20,11 @@ if (input) {
 
 // ---------------- SORT ----------------
 const sortBtn = document.getElementById("sortAZ");
-if (sortBtn) {
+if (sortBtn && cardsContainer) {
   sortBtn.addEventListener("click", () => {
-    cards.sort((a, b) => a.dataset.user.localeCompare(b.dataset.user));
+    cards.sort((a, b) =>
+      (a.dataset.fname || "").localeCompare(b.dataset.fname || "")
+    );
     cards.forEach((card) => cardsContainer.appendChild(card));
   });
 }
@@ -42,21 +45,26 @@ if (dropdown && dropdownBtn) {
   });
 }
 
+// ---------------- CHECKBOX LIMIT ----------------
 const strengthCheckboxes = document.querySelectorAll('input[name="strength1"]');
 const errorMsg = document.getElementById("strengthError");
 
-strengthCheckboxes.forEach(box => { box.addEventListener("change", () => {
-    const checked = document.querySelectorAll('input[name="strength1"]:checked');
-	     
-    if (checked.length > 4) { box.checked = false;
-      errorMsg.style.display = "block";
+strengthCheckboxes.forEach((box) => {
+  box.addEventListener("change", () => {
+    const checked = document.querySelectorAll(
+      'input[name="strength1"]:checked'
+    );
+
+    if (checked.length > 4) {
+      box.checked = false;
+      if (errorMsg) errorMsg.style.display = "block";
     } else {
-      errorMsg.style.display = "none";
+      if (errorMsg) errorMsg.style.display = "none";
     }
   });
 });
 
-// ---------------- RADIO BUTTONS ----------------
+// ---------------- RADIO FILTER ----------------
 const strengthRadios = document.querySelectorAll('input[name="strength2"]');
 
 strengthRadios.forEach((radio) => {
@@ -74,20 +82,21 @@ function filterCards() {
   const value = input ? input.value.toLowerCase() : "";
 
   const selectedRadio = document.querySelector(
-    'input[name="strength2"]:checked',
+    'input[name="strength2"]:checked'
   );
+
   const selectedStrength = selectedRadio
     ? selectedRadio.value.toLowerCase().trim()
     : "";
 
   cards.forEach((card) => {
-    const user = card.dataset.user.toLowerCase();
+    const user = (card.dataset.fname || "").toLowerCase();
     const text = card.innerText.toLowerCase();
-    const category = card.dataset.category;
+    const category = card.dataset.category || "";
 
     const items = card.querySelectorAll("li");
     const strengths = Array.from(items).map((li) =>
-      li.innerText.toLowerCase().trim(),
+      li.innerText.toLowerCase().trim()
     );
 
     const matchSearch =
@@ -97,9 +106,11 @@ function filterCards() {
 
     const matchStrength =
       selectedStrength === "" ||
+      strengths.length === 0 ||
       strengths.some((s) => s.includes(selectedStrength));
 
-    const matchFilter = currentFilter === "all" || category === currentFilter;
+    const matchFilter =
+      currentFilter === "all" || category === currentFilter;
 
     if (matchSearch && matchFilter && matchStrength) {
       card.classList.remove("hide");
@@ -109,41 +120,76 @@ function filterCards() {
   });
 }
 
-// ---------------- FORM ----------------
+// ---------------- IMAGE ----------------
 const imageInput = document.getElementById("image");
 const preview = document.getElementById("preview");
 
 let imageData = "";
 
-imageInput.addEventListener("change", () => {
-  const file = imageInput.files[0];
-  if (!file) return;
+if (imageInput) {
+  imageInput.addEventListener("change", () => {
+    const file = imageInput.files[0];
+    if (!file) return;
 
-  const reader = new FileReader();
+    const reader = new FileReader();
 
-  reader.onload = function (e) {
-    imageData = e.target.result; // base64 image
-    preview.src = imageData;
-    preview.style.display = "block";
-  };
+    reader.onload = function (e) {
+      imageData = e.target.result;
+      if (preview) {
+        preview.src = imageData;
+        preview.style.display = "block";
+      }
+    };
 
-  reader.readAsDataURL(file);
-});
+    reader.readAsDataURL(file);
+  });
+}
 
-const link = document.getElementById("link").value;
+// ---------------- FORM ----------------
 const form = document.getElementById("storyForm");
 const toggleBtn = document.getElementById("toggleForm");
 const storyDialog = document.getElementById("storyDialog");
 const closeBtn = document.getElementById("closeModal");
 
-toggleBtn.addEventListener("click", () => {
-  storyDialog.showModal();
-});
-closeBtn.addEventListener("click", () => {
-  storyDialog.close();
+if (toggleBtn && storyDialog) {
+  toggleBtn.addEventListener("click", () => storyDialog.showModal());
+}
+
+if (closeBtn && storyDialog) {
+  closeBtn.addEventListener("click", () => storyDialog.close());
+}
+
+// ---------------- EDIT BUTTON CLICK ----------------
+document.querySelectorAll(".update-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    editingCard = e.target.closest(".card");
+
+    if (!editingCard) return;
+
+    const fname = editingCard.dataset.fname || "";
+    const lname = editingCard.dataset.lname || "";
+    const rubrik = editingCard.dataset.rubrik || "";
+    const story = editingCard.dataset.story || "";
+    const strengths = editingCard.dataset.strengths
+      ? editingCard.dataset.strengths.split(",")
+      : [];
+
+    // fill form
+    document.getElementById("fname").value = fname;
+    document.getElementById("lname").value = lname;
+    document.getElementById("rubrik").value = rubrik;
+    document.getElementById("story").value = story;
+
+    // reset checkboxes
+    document.querySelectorAll('input[name="strength1"]').forEach((cb) => {
+      cb.checked = strengths.includes(cb.value);
+    });
+
+    if (storyDialog) storyDialog.showModal();
+  });
 });
 
-// SUBMIT FORM
+// ---------------- SUBMIT FORM ----------------
 if (form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -154,48 +200,38 @@ if (form) {
     const story = document.getElementById("story").value;
 
     const selectedBoxes = document.querySelectorAll(
-      'input[name="strength1"]:checked',
+      'input[name="strength1"]:checked'
     );
-    const strengths1 = Array.from(selectedBoxes).map((cb) => cb.value);
+    const strengths = Array.from(selectedBoxes).map((cb) => cb.value);
 
-    //    const selectedRadio = document.querySelector('input[name="strength"]:checked');
-    //    const strength = selectedRadio ? selectedRadio.value : "";
+    if (editingCard) {
+      // UPDATE DATA
+      editingCard.dataset.fname = fname;
+      editingCard.dataset.lname = lname;
+      editingCard.dataset.rubrik = rubrik;
+      editingCard.dataset.story = story;
+      editingCard.dataset.strengths = strengths.join(",");
 
-    // CREATE NEW CARD
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.dataset.user = fname;
-    card.dataset.category = "user";
+      // UPDATE UI
+      editingCard.querySelector(".card-name").innerText =
+        fname + " " + lname;
 
-    let link = document.getElementById("link").value.trim();
+      editingCard.querySelector(".card-title").innerText = rubrik;
+      editingCard.querySelector(".card-desc").innerText = story;
 
-    if (link && !link.startsWith("http")) {
-      link = "https://" + link;
+      const list = editingCard.querySelector(".card-strengths");
+      list.innerHTML = "";
+
+      strengths.forEach((s) => {
+        const li = document.createElement("li");
+        li.innerText = s;
+        list.appendChild(li);
+      });
+
+      editingCard = null;
     }
 
-card.innerHTML = `
-
-  ${imageData ? `<img src="${imageData}" style="width:100%; border-radius:8px;" />` : ""}
-
-  ${link ? `<a href="${link}" target="_blank" class="card-link">profil</a>` : ""}
-
-  <h3>${rubrik}</h3>
-  <p>${story}</p>
-  <small>${fname} ${lname}</small>
-  <h4>Styrkor</h4>
-  <ul>
-    ${strengths1.map((s) => `<li>${s}</li>`).join("")}
-  </ul>
-`;
-    cardsContainer.appendChild(card);
-
-    cards.push(card);
-
-    // reset form
     form.reset();
-    form.classList.add("hidden");
-
-    // re-run filter so it appears correctly
-    filterCards();
+    if (storyDialog) storyDialog.close();
   });
 }

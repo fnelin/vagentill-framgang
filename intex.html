@@ -131,80 +131,135 @@
     </div>
   </section>
 
-    <!-- CARDS -->
-      <div class="cards" id="cardsContainer">
-      <div class="card" data-user="Adam" data-category="frontend">
-     <img src="./adam.jpeg" alt="adam" width="200" height="200">
-	<a href="https://www.linkedin.com/in/adam-kammerland-21884543"><i data-lucide="linkedin"></i></a> 
-     <h3>Adam fick jobb som utvecklare</h3>
-        <p>Frontend-utvecklare efter jobbsökande.</p>
-        <h4>Styrkor</h4>
-        <ul>
-          <li>tailwind</li>
-          <li>nextjs</li>
-          <li>angular</li>
-          <li>react</li>
-        </ul>
-      </div>
+<!-- CARDS -->
+ <div class="cards" id="cardsContainer">
 
-      <div class="card" data-user="Fredrik" data-category="career">
-     <img src="./fredrik.jpeg" alt="fredrik" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/fnelin"/><i data-lucide="linkedin"></i></a>
-        <h3>Fredrik bytte karriär</h3>
-        <p>Från lager till IT-support.</p>
-        <h4>Styrkor</h4>
-        <ul>
-          <li>html</li>
-          <li>css</li>
-          <li>typescript</li>
-          <li>kaffe</li>
-        </ul>
-      </div>
-      <div class="card" data-user="Jonas" data-category="it">
-     <img src="./jonas.jpeg" alt="Jonas" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/jonas-fredriksson-314a8018"/><i data-lucide="linkedin"></i></a>
-        <h3>Jonas landade sitt drömjobb</h3>
-        <p>Fick jobb via nätverkande.</p>
-        <h4>Styrkor</h4>
-        <ul>
-          <li>python</li>
-          <li>django</li>
-          <li>luminus</li>
-          <li>nextjs</li>
-        </ul>
-      </div>
+ <div class="card"
+    data-fname="Adam"
+    data-lname="Kammerland"
+    data-rubrik="Adam fick jobb som utvecklare"
+    data-story="Frontend-utvecklare efter jobbsökande."
+    data-strengths="tailwind,nextjs,angular,react">
 
-      <div class="card" data-user="Pontus" data-category="it">
-     <img src="./pontus.jpeg" alt="Pontus" width="200" height="200">
-	      <a href="https://www.linkedin.com/in/pontus-olsson-0a6893198"/><i data-lucide="linkedin"></i></a>
-        <h3>Pontus landade sitt drömjobb</h3>
-        <p>Fick jobb via nätverkande.</p>
-        <h4>Styrkor</h4>
-        <ul>
-          <li>typescript</li>
-          <li>node</li>
-          <li>nextjs</li>
-          <li>react</li>
-        </ul>
-      </div>
-    </section>
+    <img src="./adam.jpeg" alt="Adam" class="card-img">
+    <a href="https://www.linkedin.com/in/adam-kammerland-21884543" target="_blank" class="card-link">LinkedIn</a>
 
-      <div class="card" data-user="Syed" data-category="it">
-     <img src="./syed.jpeg" alt="syed" width="200" height="200">
-	      <a href="http://www.linkedin.com/in/syedulfathwaliullah"/><i data-lucide="linkedin"></i></a>
-        <h3>Syed landade sitt drömjobb</h3>
-        <p>Fick jobb via nätverkande.</p>
-        <h4>Styrkor</h4>
-        <ul>
-          <li>fullstack</li>
-          <li>dotnet</li>
-          <li>nextjs</li>
-          <li>css</li>
-        </ul>
-      </div>
-    </div>
+    <h3 class="card-name">Adam Kammerland</h3>
+    <h3 class="card-title">Adam fick jobb som utvecklare</h3>
+    <p class="card-desc">Frontend-utvecklare efter jobbsökande.</p>
+
+    <h4>Styrkor</h4>
+    <ul class="card-strengths">
+      <li>tailwind</li>
+      <li>nextjs</li>
+      <li>angular</li>
+      <li>react</li>
+    </ul>
+
+    <button class="update-btn">Uppdatera</button>
+  </div>
+
+ <div class="card"
+    data-fname="Fredrik"
+    data-lname="Nelin"
+    data-rubrik="Fedrik bytte karriär"
+    data-story="Från lager till IT-support"
+    data-strengths="tailwind,nextjs,angular,react">
+
+    <img src="./fredrik.jpeg" alt="Fredrik" class="card-img">
+    <a href="https://www.linkedin.com/in/fnelin/" target="_blank" class="card-link">LinkedIn</a>
+
+    <h3 class="card-name">Fredrik Nelin</h3>
+    <h3 class="card-title">Från lager till IT-support"</h3>
+    <p class="card-desc">Frontend-utvecklare efter jobbsökande.</p>
+
+    <h4>Styrkor</h4>
+    <ul class="card-strengths">
+      <li>tailwind</li>
+      <li>nextjs</li>
+      <li>angular</li>
+      <li>kaffe</li>
+    </ul>
+
+    <button class="update-btn">Uppdatera</button>
+  </div>
+
+ <div class="card"
+    data-fname="Pontus"
+    data-lname="Olsson"
+    data-rubrik="Pontus landade sitt drömjobb"
+    data-story="Fick jobb via nätverkande"
+    data-strengths="tailwind,nextjs,angular,react">
+
+    <img src="./pontus.jpeg" alt="Pontus" class="card-img">
+    <a href="https://www.linkedin.com/in/pontus-olsson-0a6893198/" target="_blank" class="card-link">LinkedIn</a>
+
+    <h3 class="card-name">Pontus Olsson</h3>
+    <h3 class="card-title">Fick jobb via nätverkande</h3>
+    <p class="card-desc">Frontend-utvecklare efter jobbsökande.</p>
+
+    <h4>Styrkor</h4>
+    <ul class="card-strengths">
+      <li>tailwind</li>
+      <li>nextjs</li>
+      <li>angular</li>
+      <li>kaffe</li>
+    </ul>
+
+    <button class="update-btn">Uppdatera</button>
+ </div>
+
+ <div class="card"
+    data-fname="Jonas"
+    data-lname="Fredriksson"
+    data-rubrik="Jonas hittade sitt drömjobb"
+    data-story="Fick jobb via kontakter"
+    data-strengths="tailwind,python,angular,react">
+
+    <img src="./jonas.jpeg" alt="Jonas" class="card-img">
+    <a href="https://www.linkedin.com/in/jonas-fredriksson-314a8018/" target="_blank" class="card-link">LinkedIn</a>
+
+    <h3 class="card-name">Jonas Fredriksson</h3>
+    <h3 class="card-title">Fick jobb via kontakter</h3>
+    <p class="card-desc">Frontend-utvecklare efter jobbsökande.</p>
+
+    <h4>Styrkor</h4>
+    <ul class="card-strengths">
+      <li>tailwind</li>
+      <li>python</li>
+      <li>angular</li>
+      <li>react</li>
+    </ul>
+
+    <button class="update-btn">Uppdatera</button>
+</div>  
    
-   
+ <div class="card"
+    data-fname="Syed"
+    data-lname="ulfathwaliullah"
+    data-rubrik="tjänar 10000000 i månaden"
+    data-story="fick jobbet via en kompis"
+    data-strengths="tailwind,python,angular,react">
+
+    <img src="./syed.jpeg" alt="syed" class="card-img">
+    <a href="https://www.linkedin.com/in/syedulfathwaliullah" target="_blank" class="card-link">LinkedIn</a>
+
+    <h3 class="card-name">Syed ulfathwaliullah</h3>
+    <h3 class="card-title">Fick jobbet via en kompis</h3>
+    <p class="card-desc">fick jobbet via en kompis</p>
+
+    <h4>Styrkor</h4>
+    <ul class="card-strengths">
+      <li>tailwind</li>
+      <li>python</li>
+      <li>angular</li>
+      <li>react</li>
+    </ul>
+
+    <button class="update-btn">Uppdatera</button>
+ </div>  
+ </div>
+
     <footer>
       <p>© 2026 Vägen till framgång</p>
     </footer>
